@@ -1,0 +1,23 @@
+rules_version = '2';
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /snippets/{snippetId} {
+      // Anyone can read public snippets; owners can read their own private ones
+      allow read: if resource.data.isPublic == true
+                  || (request.auth != null && request.auth.uid == resource.data.userId);
+
+      // Must be signed in to create, and can only create snippets under your own uid
+      allow create: if request.auth != null
+                    && request.auth.uid == request.resource.data.userId;
+
+      // Only the owner can update or delete, and can't change the userId on update
+      allow update: if request.auth != null
+                    && request.auth.uid == resource.data.userId
+                    && request.resource.data.userId == resource.data.userId;
+
+      allow delete: if request.auth != null
+                    && request.auth.uid == resource.data.userId;
+    }
+  }
+}

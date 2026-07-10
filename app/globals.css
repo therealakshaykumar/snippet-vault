@@ -1,0 +1,85 @@
+@import "tailwindcss";
+
+@theme {
+  /* Color tokens - dark ink theme */
+  --color-ink: #0e0f12;
+  --color-panel: #17181c;
+  --color-panel-raised: #1f2126;
+  --color-hairline: #2a2c32;
+  --color-paper: #e8e6e1;
+  --color-fog: #8b8f98;
+  --color-fog-dim: #5a5e66;
+  --color-amber: #e8a33d;
+  --color-amber-bright: #f0b355;
+  --color-amber-dim: #7a5a26;
+  --color-teal: #4fb0a5;
+  --color-red: #d64545;
+
+  /* Type */
+  --font-sans: var(--font-plex-sans), -apple-system, sans-serif;
+  --font-mono: var(--font-fira-code), ui-monospace, monospace;
+}
+
+@layer base {
+  html,
+  body {
+    background: var(--color-ink);
+    color: var(--color-paper);
+  }
+
+  ::selection {
+    background: var(--color-amber-dim);
+    color: var(--color-paper);
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: transparent;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: var(--color-hairline);
+    border-radius: 5px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: var(--color-fog-dim);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--color-amber);
+    outline-offset: 2px;
+  }
+}
+
+@layer components {
+  .btn {
+    @apply border border-hairline bg-panel text-paper px-3.5 py-2 rounded-md text-[13px] font-medium cursor-pointer transition-colors hover:border-fog-dim disabled:opacity-50 disabled:cursor-not-allowed;
+  }
+  .btn-amber {
+    @apply bg-amber border-amber text-[#1a1300] font-semibold hover:bg-amber-bright hover:border-amber-bright;
+  }
+  .btn-ghost {
+    @apply bg-transparent;
+  }
+  .btn-danger {
+    @apply bg-transparent border-red text-red hover:bg-red/10;
+  }
+  .input {
+    @apply bg-panel-raised border border-hairline text-paper px-3 py-2.5 rounded-md text-sm w-full placeholder-fog-dim focus:border-amber focus:outline-none;
+  }
+}
+
+@keyframes blink {
+  50% {
+    opacity: 0;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
