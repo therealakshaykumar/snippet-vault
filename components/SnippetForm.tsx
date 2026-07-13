@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { useAuth } from "@/lib/auth-context";
 import { Language, createSnippet, updateSnippet, deleteSnippet, Snippet } from "@/lib/firestore";
+import { useIsAdmin } from "@/lib/hooks/useIsAdmin";
 import CodeEditor from "./CodeEditor";
 import RunPanel from "./RunPanel";
 
@@ -16,6 +17,7 @@ const STARTER = {
 export default function SnippetForm({ existing }: { existing?: Snippet }) {
   const { user } = useAuth();
   const router = useRouter();
+  const isAdmin = useIsAdmin();
 
   const [title, setTitle] = useState(existing?.title ?? "");
   const [language, setLanguage] = useState<Language>(existing?.language ?? "javascript");
@@ -101,7 +103,7 @@ export default function SnippetForm({ existing }: { existing?: Snippet }) {
         </label>
 
         <div className="flex flex-wrap gap-3 justify-end">
-          {existing && (
+          {existing && isAdmin && (
             <button className="btn btn-danger" onClick={handleDelete}>
               Delete
             </button>

@@ -58,7 +58,10 @@ export default function SnippetViewPage({
           {snippet.language}
         </span>
 
-        <pre className="code-block m-0">
+        <pre
+          className="code-block mt-4"
+          style={{ fontFamily: "var(--font-fira-code), 'Fira Code', ui-monospace, monospace" }}
+        >
           <code>{snippet.code}</code>
         </pre>
       </section>
