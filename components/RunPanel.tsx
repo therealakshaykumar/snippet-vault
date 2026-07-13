@@ -137,8 +137,8 @@ export default function RunPanel({
   const clear = () => setLogs([]);
 
   return (
-    <div className="border border-hairline rounded-lg overflow-hidden">
-      <div className="flex gap-2 px-3 py-2.5 bg-panel border-b border-hairline">
+    <div className="glass-panel overflow-hidden border border-white/10">
+      <div className="flex flex-wrap gap-2 px-4 py-3 bg-white/5 border-b border-white/10">
         <button className="btn btn-amber" onClick={run} disabled={running}>
           {running ? "Running…" : "▶ Run"}
         </button>
@@ -147,12 +147,12 @@ export default function RunPanel({
         </button>
       </div>
 
-      <div className="bg-[#0b0c0e] font-mono text-[13px] px-4 py-3.5 min-h-[140px] max-h-[320px] overflow-y-auto">
-        <div className="text-teal mb-1.5 leading-relaxed whitespace-pre-wrap break-words">
+      <div className="bg-[#06070a]/95 font-mono text-[13px] px-4 py-4 min-h-[140px] max-h-[320px] overflow-y-auto">
+        <div className="text-teal mb-3 leading-relaxed whitespace-pre-wrap break-words">
           <span className="text-amber">&gt;</span> run snippet.{language === "typescript" ? "ts" : "js"}
           {running && (
             <span
-              className="inline-block w-[7px] h-[13px] bg-amber ml-1.5 align-middle"
+              className="inline-block w-[7px] h-[13px] bg-amber ml-2 align-middle"
               style={{ animation: "blink 1s steps(1) infinite" }}
             />
           )}

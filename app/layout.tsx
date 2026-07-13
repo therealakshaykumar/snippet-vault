@@ -27,7 +27,7 @@ export default function RootLayout({
 }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en">
-      <body className={`${firaCode.variable} ${plexSans.variable} font-sans antialiased max-w-7xl mx-auto`}>
+      <body className={`${firaCode.variable} ${plexSans.variable} font-sans antialiased min-h-screen`}>
         <AuthProvider>
           <NavBar />
           {children}

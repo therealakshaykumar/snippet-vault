@@ -38,24 +38,30 @@ export default function SnippetViewPage({
   }
 
   return (
-    <main className="max-w-[800px] mx-auto px-7 pt-10 pb-20 flex flex-col gap-[18px]">
-      <div className="flex justify-between items-start">
-        <div>
-          <h1 className="text-[22px] mb-1.5">{snippet.title || "Untitled snippet"}</h1>
-          <span className="font-mono text-[11px] text-teal border border-hairline rounded px-1.5 py-0.5">
-            {snippet.language}
-          </span>
+    <main className="max-w-[900px] mx-auto px-7 pt-16 pb-20 space-y-8">
+      <section className="glass-card p-7 space-y-6">
+        <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
+          <div>
+            <p className="text-fog uppercase tracking-[0.24em] text-[11px] mb-2">
+              snippet details
+            </p>
+            <h1 className="text-3xl font-semibold">{snippet.title || "Untitled snippet"}</h1>
+          </div>
+          {isOwner && (
+            <Link className="btn btn-ghost self-start" href={`/dashboard/${snippet.id}/edit`}>
+              Edit
+            </Link>
+          )}
         </div>
-        {isOwner && (
-          <Link className="btn btn-ghost" href={`/dashboard/${snippet.id}/edit`}>
-            Edit
-          </Link>
-        )}
-      </div>
 
-      <pre className="font-mono text-[13.5px] bg-panel border border-hairline rounded-lg p-[18px] overflow-x-auto m-0 leading-relaxed">
-        {snippet.code}
-      </pre>
+        <span className="font-mono text-[11px] text-teal border border-white/10 rounded-full px-2.5 py-1">
+          {snippet.language}
+        </span>
+
+        <pre className="code-block m-0">
+          <code>{snippet.code}</code>
+        </pre>
+      </section>
 
       <RunPanel code={snippet.code} language={snippet.language} />
     </main>

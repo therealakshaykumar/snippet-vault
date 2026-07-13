@@ -32,7 +32,7 @@ export default function CodeEditor({
   };
 
   return (
-    <div className="border border-hairline rounded-lg overflow-hidden">
+    <div className="glass-panel overflow-hidden border border-white/10">
       <Editor
         height={height}
         language={language}

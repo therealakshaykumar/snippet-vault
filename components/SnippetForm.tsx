@@ -67,16 +67,16 @@ export default function SnippetForm({ existing }: { existing?: Snippet }) {
   };
 
   return (
-    <div className="flex flex-col gap-4">
-      <div className="flex gap-2.5 items-center">
+    <div className="glass-card p-6 space-y-6">
+      <div className="grid gap-4 lg:grid-cols-[1.2fr_0.8fr]">
         <input
-          className="input flex-1 text-base"
+          className="input text-base"
           placeholder="Untitled snippet"
           value={title}
           onChange={(e) => setTitle(e.target.value)}
         />
         <select
-          className="input w-40"
+          className="input w-full"
           value={language}
           onChange={(e) => handleLanguageChange(e.target.value as Language)}
         >
@@ -89,17 +89,18 @@ export default function SnippetForm({ existing }: { existing?: Snippet }) {
 
       <RunPanel code={code} language={language} />
 
-      <div className="flex gap-2.5 items-center justify-between">
-        <label className="flex items-center gap-2 text-fog text-[13px]">
+      <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <label className="flex items-center gap-3 text-fog text-sm">
           <input
             type="checkbox"
             checked={isPublic}
             onChange={(e) => setIsPublic(e.target.checked)}
+            className="h-4 w-4 rounded border border-white/10 bg-panel-raised text-amber focus:ring-amber"
           />
           Make public
         </label>
 
-        <div className="flex gap-2.5">
+        <div className="flex flex-wrap gap-3 justify-end">
           {existing && (
             <button className="btn btn-danger" onClick={handleDelete}>
               Delete

@@ -44,17 +44,17 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
 
   return (
     <div
-      className="fixed inset-0 bg-black/60 flex items-center justify-center z-[100]"
+      className="fixed inset-0 bg-slate-950/80 flex items-center justify-center z-[100] px-4"
       onClick={onClose}
     >
       <div
-        className="w-[340px] bg-panel border border-hairline rounded-[10px] p-[22px]"
+        className="w-full max-w-sm glass-card p-6"
         onClick={(e) => e.stopPropagation()}
       >
-        <div className="flex justify-between items-center font-semibold mb-[18px]">
+        <div className="flex justify-between items-center font-semibold mb-5">
           <span>{mode === "signin" ? "Sign in" : "Create account"}</span>
           <button
-            className="bg-transparent border-none text-fog text-xl cursor-pointer leading-none hover:text-paper"
+            className="bg-transparent border-none text-fog text-2xl cursor-pointer leading-none hover:text-paper"
             onClick={onClose}
             aria-label="Close"
           >
@@ -62,15 +62,15 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
           </button>
         </div>
 
-        <button className="btn w-full text-center" onClick={handleGoogle} disabled={busy}>
+        <button className="btn w-full text-center mb-4" onClick={handleGoogle} disabled={busy}>
           Continue with Google
         </button>
 
-        <div className="flex items-center gap-2.5 my-4 text-fog-dim text-xs before:content-[''] before:flex-1 before:h-px before:bg-hairline after:content-[''] after:flex-1 after:h-px after:bg-hairline">
+        <div className="flex items-center gap-2.5 my-4 text-fog-dim text-xs before:content-[''] before:flex-1 before:h-px before:bg-white/10 after:content-[''] after:flex-1 after:h-px after:bg-white/10">
           <span>or</span>
         </div>
 
-        <form onSubmit={handleEmailSubmit} className="flex flex-col gap-2.5">
+        <form onSubmit={handleEmailSubmit} className="flex flex-col gap-3">
           <input
             className="input"
             type="email"
@@ -95,7 +95,7 @@ export default function SignInModal({ onClose }: { onClose: () => void }) {
         </form>
 
         <button
-          className="bg-transparent border-none text-fog text-xs mt-3.5 cursor-pointer w-full text-center hover:text-paper"
+          className="bg-transparent border-none text-fog text-xs mt-4 cursor-pointer w-full text-center hover:text-paper"
           onClick={() => setMode(mode === "signin" ? "signup" : "signin")}
         >
           {mode === "signin"
