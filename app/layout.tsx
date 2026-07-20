@@ -18,7 +18,7 @@ const plexSans = IBM_Plex_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Snippet Vault",
+  title: "Snippet Pool",
   description: "Write, store, and run your JS/TS code snippets.",
 };
 

@@ -49,7 +49,7 @@ export default function NavBar() {
             <span className="inline-flex h-9 w-9 items-center justify-center rounded-2xl bg-amber/15 text-amber shadow-[0_10px_25px_-15px_rgba(232,163,61,0.8)]">
               {"</>"}
             </span>
-            <span>Snippet Vault</span>
+            <span>Snippet Pool</span>
           </Link>
 
           {/* Desktop nav */}
@@ -93,19 +93,16 @@ export default function NavBar() {
             {/* Animated hamburger → X */}
             <span className="flex flex-col items-center justify-center gap-[5px] w-[18px]">
               <span
-                className={`block h-[2px] w-full rounded-full bg-current transition-all duration-300 origin-center ${
-                  mobileOpen ? "translate-y-[7px] rotate-45" : ""
-                }`}
+                className={`block h-[2px] w-full rounded-full bg-current transition-all duration-300 origin-center ${mobileOpen ? "translate-y-[7px] rotate-45" : ""
+                  }`}
               />
               <span
-                className={`block h-[2px] w-full rounded-full bg-current transition-all duration-300 ${
-                  mobileOpen ? "opacity-0 scale-x-0" : ""
-                }`}
+                className={`block h-[2px] w-full rounded-full bg-current transition-all duration-300 ${mobileOpen ? "opacity-0 scale-x-0" : ""
+                  }`}
               />
               <span
-                className={`block h-[2px] w-full rounded-full bg-current transition-all duration-300 origin-center ${
-                  mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
-                }`}
+                className={`block h-[2px] w-full rounded-full bg-current transition-all duration-300 origin-center ${mobileOpen ? "-translate-y-[7px] -rotate-45" : ""
+                  }`}
               />
             </span>
           </button>
@@ -113,9 +110,8 @@ export default function NavBar() {
 
         {/* Mobile dropdown menu */}
         <div
-          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${
-            mobileOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
-          }`}
+          className={`md:hidden overflow-hidden transition-all duration-300 ease-out ${mobileOpen ? "max-h-[400px] opacity-100" : "max-h-0 opacity-0"
+            }`}
         >
           <div className="border-t border-white/10 px-5 pb-5 pt-4 flex flex-col gap-4">
             {/* Nav links */}

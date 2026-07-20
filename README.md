@@ -1,4 +1,4 @@
-# Snippet Vault
+# Snippet Pool
 
 A JS/TS snippet manager. Paste code, run it in a sandboxed iframe, save it to
 Firestore. Public snippets are viewable by anyone; creating, editing, and
