@@ -18,7 +18,7 @@ function DashboardContent() {
             <p className="text-fog text-sm uppercase tracking-[0.24em] mb-2">Your workspace</p>
             <h1 className="text-3xl font-semibold">My Snippets</h1>
           </div>
-          <Link className="btn btn-amber w-full sm:w-auto" href="/dashboard/new">
+          <Link className="btn btn-amber text-center w-full sm:w-auto" href="/dashboard/new">
             + New snippet
           </Link>
         </div>
